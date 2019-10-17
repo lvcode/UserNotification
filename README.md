@@ -9,5 +9,5 @@ demo主要展示本地推送功能；
 * UNLocationNotificationTrigger     位置推送
 * UNCalendarNotificationTrigger     日历推送
 
-以及iOS10+增加的交互功能；
+以及iOS10增加的通知内容功能和iOS12增加的通知交互等功能
 
