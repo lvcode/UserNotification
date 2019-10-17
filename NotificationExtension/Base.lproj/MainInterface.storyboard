@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notification View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" userLabel="Notification View Controller" customClass="NotificationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
+                                <rect key="frame" x="10" y="230" width="300" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MT4-GG-9j4">
+                                <rect key="frame" x="10" y="5" width="300" height="220"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="Wb4-vU-5AY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YxG-BN-bfO">
+                                <rect key="frame" x="150" y="105" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0F7-Bh-hDm" customClass="LVAVPlayerView">
+                                <rect key="frame" x="10" y="0.0" width="300" height="220"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xp7-Sv-pR5">
+                                        <rect key="frame" x="-2" y="190" width="304" height="31"/>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="887-jv-6LL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xp7-Sv-pR5" secondAttribute="trailing" id="OGr-TP-qlo"/>
+                                    <constraint firstItem="Xp7-Sv-pR5" firstAttribute="leading" secondItem="0F7-Bh-hDm" secondAttribute="leading" id="QgH-3R-Ng6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xp7-Sv-pR5" secondAttribute="bottom" id="i88-m6-403"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45v-TL-CYU">
+                                <rect key="frame" x="265" y="180" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4MY-Cg-EiO"/>
+                                    <constraint firstAttribute="width" constant="40" id="VSa-qU-Dpv"/>
+                                </constraints>
+                                <state key="normal" image="unlike"/>
+                                <state key="selected" image="like"/>
+                                <connections>
+                                    <action selector="likeAction:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="owj-3T-qGQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MT4-GG-9j4" firstAttribute="trailing" secondItem="2BE-c3-nQJ" secondAttribute="trailing" constant="-10" id="1uR-FZ-ck2"/>
+                            <constraint firstItem="0F7-Bh-hDm" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="6z4-VW-jE4"/>
+                            <constraint firstItem="MT4-GG-9j4" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="5" id="9Kl-aT-dWS"/>
+                            <constraint firstItem="45v-TL-CYU" firstAttribute="trailing" secondItem="MT4-GG-9j4" secondAttribute="trailing" constant="-5" id="FXU-Sa-217"/>
+                            <constraint firstItem="45v-TL-CYU" firstAttribute="bottom" secondItem="MT4-GG-9j4" secondAttribute="bottom" constant="-5" id="HJ8-eU-c6A"/>
+                            <constraint firstItem="0F7-Bh-hDm" firstAttribute="leading" secondItem="2BE-c3-nQJ" secondAttribute="leading" constant="10" id="NLc-PM-yVd"/>
+                            <constraint firstItem="YxG-BN-bfO" firstAttribute="centerX" secondItem="MT4-GG-9j4" secondAttribute="centerX" id="Tt4-AM-Yh8"/>
+                            <constraint firstItem="YxG-BN-bfO" firstAttribute="centerY" secondItem="MT4-GG-9j4" secondAttribute="centerY" id="UBn-kK-rvG"/>
+                            <constraint firstItem="MT4-GG-9j4" firstAttribute="leading" secondItem="2BE-c3-nQJ" secondAttribute="leading" constant="10" id="aJo-UE-Q6D"/>
+                            <constraint firstItem="2BE-c3-nQJ" firstAttribute="trailing" secondItem="0F7-Bh-hDm" secondAttribute="trailing" constant="10" id="dnC-Gi-88e"/>
+                            <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="MT4-GG-9j4" secondAttribute="bottom" constant="5" id="fuh-k7-sW3"/>
+                            <constraint firstItem="GcN-lo-r42" firstAttribute="bottom" secondItem="2BE-c3-nQJ" secondAttribute="bottom" constant="-5" id="sPR-5W-VZk"/>
+                            <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="2BE-c3-nQJ" secondAttribute="leading" constant="10" id="vGS-3M-dxi"/>
+                            <constraint firstItem="GcN-lo-r42" firstAttribute="trailing" secondItem="2BE-c3-nQJ" secondAttribute="trailing" constant="-10" id="x4x-Oh-tnB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2BE-c3-nQJ"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="250"/>
+                    <connections>
+                        <outlet property="activity" destination="YxG-BN-bfO" id="GId-XU-smR"/>
+                        <outlet property="imageView" destination="MT4-GG-9j4" id="dgY-uv-3xS"/>
+                        <outlet property="label" destination="GcN-lo-r42" id="lpW-cU-7IG"/>
+                        <outlet property="likeBtn" destination="45v-TL-CYU" id="Por-c6-mO5"/>
+                        <outlet property="slider" destination="Xp7-Sv-pR5" id="JHN-j2-tIT"/>
+                        <outlet property="videoLayer" destination="0F7-Bh-hDm" id="Ikb-Y0-ay9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="like" width="730" height="600"/>
+        <image name="unlike" width="533" height="443"/>
+    </resources>
+</document>
