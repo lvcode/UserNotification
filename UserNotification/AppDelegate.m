@@ -25,16 +25,8 @@
     
     YTKNetworkConfig *config = [YTKNetworkConfig sharedConfig];
     config.baseUrl = @"https://www.apiopen.top";
-    [[UIApplication sharedApplication]registerForRemoteNotifications];
-    
-//    UIWindow *window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-//    window.backgroundColor = [UIColor whiteColor];
-//    self.window = window;
-//    ViewController *controller = [ViewController new];
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
-//    self.window.rootViewController = nav;
-//    
-//    [self.window makeKeyAndVisible];
+//    注册获取device token
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
     
     return YES;
 }
@@ -72,12 +64,13 @@
 // 获取devicetoken
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     if (![deviceToken isKindOfClass:[NSData class]]) return;
-    const unsigned *tokenBytes = [deviceToken bytes];
-    NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
-                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
-    NSLog(@"deviceToken = %@",hexToken);
+    NSUInteger len = [deviceToken length];
+    char *chars = (char *) [deviceToken bytes];
+    NSMutableString *hexString = [[NSMutableString alloc]init];
+    for (NSUInteger i = 0; i < len; i++) {
+        [hexString appendString:[NSString stringWithFormat:@"%0.2hhx",chars[i]]];
+    }
+    NSLog(@"deviceToken = %@",hexString);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -173,11 +166,11 @@
 //        AVPlayerViewController *avPlayerVC =[[AVPlayerViewController alloc] init];
 //        avPlayerVC.player = avPlayer;
         
-        MPMoviePlayerViewController *playerVC = [[MPMoviePlayerViewController alloc]initWithContentURL:webVideoUrl];
-
-//        [playerVC.view setFrame:[UIScreen mainScreen].bounds];
-//        [playerVC play];
-    
+        AVPlayerViewController *playerVC = [[AVPlayerViewController alloc]init];
+        playerVC.player = [AVPlayer playerWithURL:webVideoUrl];
+        playerVC.view.frame = [UIScreen mainScreen].bounds;
+        playerVC.showsPlaybackControls = YES;
+        [playerVC.player play];
         [self.window.rootViewController presentViewController:playerVC animated:YES completion:^{
             
         }];

@@ -301,9 +301,10 @@ static NSString *identifier = @"CELL";
 // 指定时间进行通知
 - (void)locoalCalendarNotification {
     NSDateComponents *components = [[NSDateComponents alloc]init];
-    components.weekday = 4;
+    // 1 周日 2 周一……
+    components.weekday = 6;
     components.hour = 10;
-    components.minute = 37;
+    components.minute = 57;
     UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:YES];
     
     UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc]init];

@@ -27,11 +27,7 @@
     
     self.contentHandler(self.bestAttemptContent);
     
-    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:nil options:nil progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-        
-    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
-        
-    }];
+
 }
 
 - (void)serviceExtensionTimeWillExpire {
